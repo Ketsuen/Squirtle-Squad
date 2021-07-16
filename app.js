@@ -63,4 +63,4 @@ client.on("message", (message) => {
   }
 });
 // client.channels.cache.get("862724611246522388D").send("hello world");
-client.login("MjY4ODc5NzQyOTA2NjYyOTIz.WHa7xg.WMQr9sfBRt4teAscvgjOF5NvUfQ");
+client.login("MjY4ODc5NzQyOTA2NjYyOTIz.WHa7xg.q_xPTLJ3XNdDCX17I3B3-wtkDSk");
