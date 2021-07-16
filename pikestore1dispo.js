@@ -8,8 +8,10 @@ async function Pikastorep1dispo(client, message, stableListe) {
   });
 
   const page = (await browser.pages())[0];
+  await page.setDefaultNavigationTimeout(0);
   await page.goto(
-    "https://www.pikastore.fr/cartes/jeux-de-cartes/pokemon/?order=product.price.desc&q=Disponibilit%C3%A9-En+stock/Langue-Fran%C3%A7ais"
+    "https://www.pikastore.fr/cartes/jeux-de-cartes/pokemon/?order=product.price.desc&q=Disponibilit%C3%A9-En+stock/Langue-Fran%C3%A7ais",
+    { waitUntil: "load", timeout: 0 }
   );
 
   const listeArticles = await page.evaluate(() => {
@@ -40,7 +42,7 @@ async function Pikastorep1dispo(client, message, stableListe) {
 
   await page.close();
   await browser.close();
-  console.log("pikastore1d");
+  console.log("pikastore1d" + listeArticles.length);
 
   return listeArticles;
 }

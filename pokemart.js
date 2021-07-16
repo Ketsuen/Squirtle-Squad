@@ -8,8 +8,10 @@ async function Pokemart(client, message, stableListe) {
   });
 
   const page = (await browser.pages())[0];
+  await page.setDefaultNavigationTimeout(0);
   await page.goto(
-    "https://fr.pokemart.be/cat%C3%A9gorie-de-produit/proger-pokemon-fr/?instock=true"
+    "https://fr.pokemart.be/cat%C3%A9gorie-de-produit/proger-pokemon-fr/?instock=true",
+    { waitUntil: "load", timeout: 0 }
   );
 
   const listeArticles = await page.evaluate(() => {
@@ -38,7 +40,7 @@ async function Pokemart(client, message, stableListe) {
   }
   await page.close();
   await browser.close();
-  console.log("pokemart");
+  console.log("pokemart" + listeArticles.length);
 
   return listeArticles;
 }

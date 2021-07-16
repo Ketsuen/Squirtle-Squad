@@ -8,7 +8,12 @@ async function Keytwo(client, message, stableListe) {
   });
 
   const page = (await browser.pages())[0];
-  await page.goto("https://www.keytwo.be/?page=2");
+  await page.setDefaultNavigationTimeout(0);
+
+  await page.goto("https://www.keytwo.be/?page=2", {
+    waitUntil: "load",
+    timeout: 0,
+  });
 
   const listeArticles = await page.evaluate(() => {
     let listeArticles = [];
@@ -40,7 +45,7 @@ async function Keytwo(client, message, stableListe) {
 
   await page.close();
   await browser.close();
-  console.log("keytwo");
+  console.log("keytwo" + listeArticles.length);
   return listeArticles;
 }
 

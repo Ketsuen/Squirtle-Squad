@@ -8,8 +8,10 @@ async function MaitreRenard(client, message, stableListe) {
   });
 
   const page = (await browser.pages())[0];
+  await page.setDefaultNavigationTimeout(0);
   await page.goto(
-    "https://maitrerenard.shop/univers/cartes-a-collectionner/?min_price=14&max_price=100&count=50"
+    "https://maitrerenard.shop/univers/cartes-a-collectionner/?min_price=14&max_price=100&count=50",
+    { waitUntil: "load", timeout: 0 }
   );
 
   const listeArticles = await page.evaluate(() => {
@@ -41,7 +43,7 @@ async function MaitreRenard(client, message, stableListe) {
 
   await page.close();
   await browser.close();
-  console.log("maitrerenard");
+  console.log("maitrerenard" + listeArticles.length);
 
   return listeArticles;
 }
