@@ -3,8 +3,8 @@ const comparer = require("./utils");
 
 async function Pikastorep1preco(client, message, stableListe) {
   const browser = await puppeteer.launch({
-    headless: false,
-    args: ["--no-sandbox"],
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
   const page = (await browser.pages())[0];
