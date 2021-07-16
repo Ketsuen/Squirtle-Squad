@@ -2,7 +2,10 @@ const puppeteer = require("puppeteer");
 const comparer = require("./utils");
 
 async function Keytwo(client, message, stableListe) {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({
+    headless: false,
+    args: ["--no-sandbox"],
+  });
 
   const page = (await browser.pages())[0];
   await page.goto("https://www.keytwo.be/?page=2");
