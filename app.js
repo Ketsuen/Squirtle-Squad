@@ -15,11 +15,11 @@ client.on("ready", () => {
 });
 let stableListe = {
   keytwo: [],
-  // maitrerenard: [],
-  // pikestorep1preco: [],
-  // pikestorep2preco: [],
-  // pikastorep1disponible: [],
-  // pokemart: [],
+  maitrerenard: [],
+  pikestorep1preco: [],
+  pikestorep2preco: [],
+  pikastorep1disponible: [],
+  pokemart: [],
 };
 let numSite = 0;
 client.on("message", (message) => {
