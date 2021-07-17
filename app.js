@@ -59,7 +59,7 @@ client.on("message", (message) => {
           stableListe.pokemart
         );
       numSite++;
-    }, 10000);
+    }, 5000);
   }
 });
 // client.channels.cache.get("862724611246522388D").send("hello world");
