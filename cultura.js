@@ -9,6 +9,7 @@ async function Cultura(client, message, stableListe) {
 
   const page = (await browser.pages())[0];
   await page.setDefaultNavigationTimeout(0);
+  page.on("pageerror", errorListener);
   await page.goto(
     "https://www.cultura.com/jeux-video-consoles/cartes-a-jouer/cartes-pokemon.html?dir=desc&order=price&p=1",
     { waitUntil: "networkidle0", timeout: 0 }
@@ -39,7 +40,7 @@ async function Cultura(client, message, stableListe) {
       );
     }
   }
-
+  page.removeListener("pageerror", errorListener);
   await page.close();
   await browser.close();
   console.log("Cultura" + listeArticles.length);

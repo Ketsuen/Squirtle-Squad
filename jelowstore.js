@@ -8,6 +8,7 @@ async function JelowStore(client, message, stableListe) {
   });
 
   const page = (await browser.pages())[0];
+  page.on("pageerror", errorListener);
   await page.setDefaultNavigationTimeout(0);
 
   await page.goto(
@@ -42,6 +43,7 @@ async function JelowStore(client, message, stableListe) {
       );
     }
   }
+  page.removeListener("pageerror", errorListener);
 
   await page.close();
   await browser.close();
