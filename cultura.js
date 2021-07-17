@@ -11,12 +11,13 @@ async function Cultura(client, message, stableListe) {
   await page.setDefaultNavigationTimeout(0);
   await page.goto(
     "https://www.cultura.com/jeux-video-consoles/cartes-a-jouer/cartes-pokemon.html?dir=desc&order=price&p=1",
-    { waitUntil: "load", timeout: 0 }
+    { waitUntil: "networkidle0", timeout: 0 }
   );
-
+  await page.waitForSelector("#category-products > ul > li:nth-child(1)");
   const listeArticles = await page.evaluate(() => {
     let listeArticles = [];
     let elements = document.querySelectorAll("div .category-products ul li");
+    console.log(elements);
     for (element of elements) {
       listeArticles.push({
         name: element.querySelector("h3").innerText,

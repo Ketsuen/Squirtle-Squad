@@ -9,7 +9,6 @@ const Pikastorep1preco = require("./pikestorep1preco");
 const Pikastorep2preco = require("./pikestorep2preco");
 const Pikastorep1dispo = require("./pikestore1dispo");
 const Pokemart = require("./pokemart");
-const Cultura = require("./cultura");
 const JelowStore = require("./jelowstore");
 const Maxitoys = require("./maxitoys");
 
@@ -25,7 +24,6 @@ let stableListe = {
   pokemart: [],
   jelowstore: [],
   maxitoys: [],
-  cultura: [],
 };
 let numSite = 0;
 client.on("message", (message) => {
@@ -65,18 +63,12 @@ client.on("message", (message) => {
           stableListe.pokemart
         );
       else if (website == 6)
-        stableListe.cultura = await Cultura(
-          client,
-          message,
-          stableListe.cultura
-        );
-      else if (website == 7)
         stableListe.jelowstore = await JelowStore(
           client,
           message,
           stableListe.jelowstore
         );
-      else if (website == 8)
+      else if (website == 7)
         stableListe.maxitoys = await Maxitoys(
           client,
           message,
