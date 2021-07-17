@@ -33,7 +33,7 @@ async function Pikastorep2preco(client, message, stableListe) {
   });
   var newArticles = await listeArticles.filter(await comparer(stableListe));
   for (let index = 0; index < newArticles.length; index++) {
-    if (newArticles[index].dispo === "dispo") {
+    if (newArticles[index].dispo === "dispo" && stableListe.length > 0) {
       message.channel.send(
         "Pikastore\n" + newArticles[index].name + "\n" + newArticles[index].url
       );

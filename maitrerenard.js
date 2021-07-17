@@ -31,7 +31,7 @@ async function MaitreRenard(client, message, stableListe) {
   });
   var newArticles = await listeArticles.filter(await comparer(stableListe));
   for (let index = 0; index < newArticles.length; index++) {
-    if (newArticles[index].dispo === "dispo") {
+    if (newArticles[index].dispo === "dispo" && stableListe.length > 0) {
       message.channel.send(
         "MAITRE RENARD\n" +
           newArticles[index].name +
