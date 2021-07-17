@@ -9,6 +9,9 @@ const Pikastorep1preco = require("./pikestorep1preco");
 const Pikastorep2preco = require("./pikestorep2preco");
 const Pikastorep1dispo = require("./pikestore1dispo");
 const Pokemart = require("./pokemart");
+const Cultura = require("./cultura");
+const JelowStore = require("./jelowstore");
+const Maxitoys = require("./maxitoys");
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -20,6 +23,9 @@ let stableListe = {
   pikestorep2preco: [],
   pikastorep1disponible: [],
   pokemart: [],
+  jelowstore: [],
+  maxitoys: [],
+  cultura: [],
 };
 let numSite = 0;
 client.on("message", (message) => {
@@ -57,6 +63,24 @@ client.on("message", (message) => {
           client,
           message,
           stableListe.pokemart
+        );
+      else if (website == 6)
+        stableListe.cultura = await Cultura(
+          client,
+          message,
+          stableListe.cultura
+        );
+      else if (website == 7)
+        stableListe.jelowstore = await JelowStore(
+          client,
+          message,
+          stableListe.jelowstore
+        );
+      else if (website == 8)
+        stableListe.maxitoys = await Maxitoys(
+          client,
+          message,
+          stableListe.maxitoys
         );
       numSite++;
     }, 5000);
