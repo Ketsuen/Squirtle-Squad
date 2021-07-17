@@ -8,7 +8,6 @@ async function MaitreRenard(client, message, stableListe) {
   });
 
   const page = (await browser.pages())[0];
-  page.on("pageerror", errorListener);
   await page.setDefaultNavigationTimeout(0);
   await page.goto(
     "https://maitrerenard.shop/univers/cartes-a-collectionner/?min_price=14&max_price=100&count=50",
@@ -41,7 +40,6 @@ async function MaitreRenard(client, message, stableListe) {
       );
     }
   }
-  page.removeListener("pageerror", errorListener);
 
   await page.close();
   await browser.close();

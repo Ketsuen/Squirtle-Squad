@@ -9,10 +9,9 @@ async function Cultura(client, message, stableListe) {
 
   const page = (await browser.pages())[0];
   await page.setDefaultNavigationTimeout(0);
-  page.on("pageerror", errorListener);
   await page.goto(
     "https://www.cultura.com/jeux-video-consoles/cartes-a-jouer/cartes-pokemon.html?dir=desc&order=price&p=1",
-    { waitUntil: "networkidle0", timeout: 0 }
+    { waitUntil: "load", timeout: 0 }
   );
   await page.waitForSelector("#category-products > ul > li:nth-child(1)");
   const listeArticles = await page.evaluate(() => {
@@ -40,7 +39,7 @@ async function Cultura(client, message, stableListe) {
       );
     }
   }
-  page.removeListener("pageerror", errorListener);
+
   await page.close();
   await browser.close();
   console.log("Cultura" + listeArticles.length);

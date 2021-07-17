@@ -8,7 +8,6 @@ async function Pikastorep1preco(client, message, stableListe) {
   });
 
   const page = (await browser.pages())[0];
-  page.on("pageerror", errorListener);
   await page.setDefaultNavigationTimeout(0);
   await page.goto(
     "https://www.pikastore.fr/cartes/jeux-de-cartes/pokemon/?order=product.price.desc&q=Disponibilit%C3%A9-Precommande/Langue-Fran%C3%A7ais",
@@ -40,7 +39,7 @@ async function Pikastorep1preco(client, message, stableListe) {
       );
     }
   }
-  page.removeListener("pageerror", errorListener);
+
   await page.close();
   await browser.close();
   console.log("pikastorep1prec" + listeArticles.length);
