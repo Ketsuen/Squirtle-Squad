@@ -1,5 +1,3 @@
-const puppeteer = require("puppeteer");
-
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
@@ -58,114 +56,74 @@ client.on("message", (message) => {
         if (website == 0) {
           if (stableListe.keytwo.actif) {
             stableListe.keytwo.actif = false;
-            let tempArray1 = [];
-            tempArray1 = await Keytwo(
+            stableListe.keytwo.tableau = await Keytwo(
               client,
               message,
-              stableListe.keytwo.tableau
+              stableListe.keytwo
             );
-          }
-          if (tempArray1.length > 0) {
-            stableListe.keytwo.tableau = tempArray1;
-            stableListe.keytwo.actif = true;
           }
         } else if (website == 1) {
           if (stableListe.maitrerenard.actif) {
             stableListe.maitrerenard.actif = false;
-            let tempArray2 = [];
-            tempArray2 = await MaitreRenard(
+            stableListe.maitrerenard.tableau = await MaitreRenard(
               client,
               message,
-              stableListe.maitrerenard.tableau
+              stableListe.maitrerenard
             );
-          }
-          if (tempArray2.length > 0) {
-            stableListe.maitrerenard.tableau = tempArray2;
-            stableListe.maitrerenard.actif = true;
           }
         } else if (website == 2) {
           if (stableListe.pikestorep1preco.actif) {
             stableListe.pikestorep1preco.actif = false;
-            let tempArray3 = [];
-            tempArray3 = await Pikastorep1preco(
+            stableListe.pikestorep1preco.tableau = await Pikastorep1preco(
               client,
               message,
-              stableListe.pikestorep1preco.tableau
+              stableListe.pikestorep1preco
             );
-          }
-          if (tempArray3.length > 0) {
-            stableListe.pikestorep1preco.tableau = tempArray3;
-            stableListe.pikestorep1preco.actif = true;
           }
         } else if (website == 3) {
           if (stableListe.pikestorep2preco.actif) {
             stableListe.pikestorep2preco.actif = false;
-            let tempArray4 = [];
-            tempArray4 = await Pikastorep2preco(
+            stableListe.pikestorep2preco.tableau = await Pikastorep2preco(
               client,
               message,
-              stableListe.pikestorep2preco.tableau
+              stableListe.pikestorep2preco
             );
-          }
-          if (tempArray4.length > 0) {
-            stableListe.pikestorep2preco.tableau = tempArray4;
-            stableListe.pikestorep2preco.actif = true;
           }
         } else if (website == 4) {
           if (stableListe.pikastorep1disponible.actif) {
             stableListe.pikastorep1disponible.actif = false;
-            let tempArray5 = [];
-            tempArray5 = await Pikastorep1dispo(
+            stableListe.pikastorep1disponible.tableau = await Pikastorep1dispo(
               client,
               message,
-              stableListe.pikastorep1disponible.tableau
+              stableListe.pikastorep1disponible
             );
-          }
-          if (tempArray5.length > 0) {
-            stableListe.pikastorep1disponible.tableau = tempArray5;
-            stableListe.pikastorep1disponible.actif = true;
           }
         } else if (website == 5) {
           if (stableListe.pokemart.actif) {
             stableListe.pokemart.actif = false;
-            let tempArray6 = [];
-            tempArray6 = await Pokemart(
+            stableListe.pokemart.tableau = await Pokemart(
               client,
               message,
-              stableListe.pokemart.tableau
+              stableListe.pokemart
             );
-          }
-          if (tempArray6.length > 0) {
-            stableListe.pokemart.tableau = tempArray6;
-            stableListe.pokemart.actif = true;
           }
         } else if (website == 6) {
           if (stableListe.jelowstore.actif) {
             stableListe.jelowstore.actif = false;
-            let tempArray7 = [];
-            tempArray7 = await JelowStore(
+            stableListe.jelowstore.tableau = await JelowStore(
               client,
               message,
-              stableListe.jelowstore.tableau
+              stableListe.jelowstore
             );
-          }
-          if (tempArray7.length > 0) {
-            stableListe.jelowstore.tableau = tempArray7;
-            stableListe.jelowstore.actif = true;
           }
         } else if (website == 7) {
           if (stableListe.maxitoys.actif) {
             stableListe.maxitoys.actif = false;
-            let tempArray8 = [];
-            tempArray8 = await Maxitoys(
+            stableListe.maxitoys.tableau = await Maxitoys(
               client,
               message,
-              stableListe.maxitoys.tableau
+              stableListe.maxitoys
             );
-          }
-          if (tempArray8.length > 0) {
-            stableListe.maxitoys.tableau = tempArray8;
-            stableListe.maxitoys.actif = true;
           }
         }
         numSite++;

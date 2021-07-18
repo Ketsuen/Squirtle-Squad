@@ -29,9 +29,14 @@ async function MaitreRenard(client, message, stableListe) {
 
     return listeArticles;
   });
-  var newArticles = await listeArticles.filter(await comparer(stableListe));
+  var newArticles = await listeArticles.filter(
+    await comparer(stableListe.tableau)
+  );
   for (let index = 0; index < newArticles.length; index++) {
-    if (newArticles[index].dispo === "dispo" && stableListe.length > 0) {
+    if (
+      newArticles[index].dispo === "dispo" &&
+      stableListe.tableau.length > 0
+    ) {
       message.channel.send(
         "MAITRE RENARD\n" +
           newArticles[index].name +
@@ -41,6 +46,7 @@ async function MaitreRenard(client, message, stableListe) {
     }
   }
 
+  stableListe.actif = true;
   await page.close();
   await browser.close();
   console.log("maitrerenard" + listeArticles.length);

@@ -34,15 +34,21 @@ async function JelowStore(client, message, stableListe) {
 
     return listeArticles;
   });
-  var newArticles = await listeArticles.filter(await comparer(stableListe));
+  var newArticles = await listeArticles.filter(
+    await comparer(stableListe.tableau)
+  );
   for (let index = 0; index < newArticles.length; index++) {
-    if (newArticles[index].dispo === "dispo" && stableListe.length > 0) {
+    if (
+      newArticles[index].dispo === "dispo" &&
+      stableListe.tableau.length > 0
+    ) {
       message.channel.send(
         "JelowStore\n" + newArticles[index].name + "\n" + newArticles[index].url
       );
     }
   }
 
+  stableListe.actif = true;
   await page.close();
   await browser.close();
   console.log("JelowStore" + listeArticles.length);

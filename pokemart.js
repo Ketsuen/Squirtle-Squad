@@ -13,10 +13,12 @@ async function Pokemart(client, message, stableListe) {
     "https://fr.pokemart.be/cat%C3%A9gorie-de-produit/proger-pokemon-fr/?instock=true",
     { waitUntil: "load", timeout: 0 }
   );
+  await page.waitForSelector("#primary > ul");
 
   const listeArticles = await page.evaluate(() => {
     let listeArticles = [];
     let elements = document.querySelectorAll("ul li.product");
+
     for (element of elements) {
       listeArticles.push({
         name: element.querySelector("h2").textContent,
@@ -30,14 +32,20 @@ async function Pokemart(client, message, stableListe) {
 
     return listeArticles;
   });
-  var newArticles = await listeArticles.filter(await comparer(stableListe));
+  var newArticles = await listeArticles.filter(
+    await comparer(stableListe.tableau)
+  );
   for (let index = 0; index < newArticles.length; index++) {
-    if (newArticles[index].dispo === "dispo" && stableListe.length > 0) {
+    if (
+      newArticles[index].dispo === "dispo" &&
+      stableListe.tableau.length > 0
+    ) {
       message.channel.send(
         "Pikastore\n" + newArticles[index].name + "\n" + newArticles[index].url
       );
     }
   }
+  stableListe.actif = true;
   await page.close();
   await browser.close();
   console.log("pokemart" + listeArticles.length);
