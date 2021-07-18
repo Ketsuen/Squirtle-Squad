@@ -59,7 +59,7 @@ client.on("message", (message) => {
           if (stableListe.keytwo.actif) {
             stableListe.keytwo.actif = false;
             let tempArray1 = [];
-            let tempArray1 = await Keytwo(
+            tempArray1 = await Keytwo(
               client,
               message,
               stableListe.keytwo.tableau
