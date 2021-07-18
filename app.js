@@ -59,15 +59,15 @@ client.on("message", (message) => {
           if (stableListe.keytwo.actif) {
             stableListe.keytwo.actif = false;
             let tempArray = [];
-            tempArray = await Keytwo(
+            let tempArray = await Keytwo(
               client,
               message,
               stableListe.keytwo.tableau
             );
-          }
-          if (tempArray.length > 0) {
-            stableListe.keytwo.tableau = tempArray;
-            stableListe.keytwo.actif = true;
+            if (tempArray.length > 0) {
+              stableListe.keytwo.tableau = tempArray;
+              stableListe.keytwo.actif = true;
+            }
           }
         } else if (website == 1) {
           if (stableListe.maitrerenard.actif) {
@@ -78,10 +78,10 @@ client.on("message", (message) => {
               message,
               stableListe.maitrerenard.tableau
             );
-          }
-          if (tempArray.length > 0) {
-            stableListe.maitrerenard.tableau = tempArray;
-            stableListe.maitrerenard.actif = true;
+            if (tempArray.length > 0) {
+              stableListe.maitrerenard.tableau = tempArray;
+              stableListe.maitrerenard.actif = true;
+            }
           }
         } else if (website == 2) {
           if (stableListe.pikestorep1preco.actif) {
@@ -92,10 +92,10 @@ client.on("message", (message) => {
               message,
               stableListe.pikestorep1preco.tableau
             );
-          }
-          if (tempArray.length > 0) {
-            stableListe.pikestorep1preco.tableau = tempArray;
-            stableListe.pikestorep1preco.actif = true;
+            if (tempArray.length > 0) {
+              stableListe.pikestorep1preco.tableau = tempArray;
+              stableListe.pikestorep1preco.actif = true;
+            }
           }
         } else if (website == 3) {
           if (stableListe.pikestorep2preco.actif) {
@@ -106,10 +106,10 @@ client.on("message", (message) => {
               message,
               stableListe.pikestorep2preco.tableau
             );
-          }
-          if (tempArray.length > 0) {
-            stableListe.pikestorep2preco.tableau = tempArray;
-            stableListe.pikestorep2preco.actif = true;
+            if (tempArray.length > 0) {
+              stableListe.pikestorep2preco.tableau = tempArray;
+              stableListe.pikestorep2preco.actif = true;
+            }
           }
         } else if (website == 4) {
           if (stableListe.pikastorep1disponible.actif) {
@@ -120,10 +120,10 @@ client.on("message", (message) => {
               message,
               stableListe.pikastorep1disponible.tableau
             );
-          }
-          if (tempArray.length > 0) {
-            stableListe.pikastorep1disponible.tableau = tempArray;
-            stableListe.pikastorep1disponible.actif = true;
+            if (tempArray.length > 0) {
+              stableListe.pikastorep1disponible.tableau = tempArray;
+              stableListe.pikastorep1disponible.actif = true;
+            }
           }
         } else if (website == 5) {
           if (stableListe.pokemart.actif) {
@@ -134,10 +134,10 @@ client.on("message", (message) => {
               message,
               stableListe.pokemart.tableau
             );
-          }
-          if (tempArray.length > 0) {
-            stableListe.pokemart.tableau = tempArray;
-            stableListe.pokemart.actif = true;
+            if (tempArray.length > 0) {
+              stableListe.pokemart.tableau = tempArray;
+              stableListe.pokemart.actif = true;
+            }
           }
         } else if (website == 6) {
           if (stableListe.jelowstore.actif) {
@@ -148,10 +148,10 @@ client.on("message", (message) => {
               message,
               stableListe.jelowstore.tableau
             );
-          }
-          if (tempArray.length > 0) {
-            stableListe.jelowstore.tableau = tempArray;
-            stableListe.jelowstore.actif = true;
+            if (tempArray.length > 0) {
+              stableListe.jelowstore.tableau = tempArray;
+              stableListe.jelowstore.actif = true;
+            }
           }
         } else if (website == 7) {
           if (stableListe.maxitoys.actif) {
@@ -162,10 +162,10 @@ client.on("message", (message) => {
               message,
               stableListe.maxitoys.tableau
             );
-          }
-          if (tempArray.length > 0) {
-            stableListe.maxitoys.tableau = tempArray;
-            stableListe.maxitoys.actif = true;
+            if (tempArray.length > 0) {
+              stableListe.maxitoys.tableau = tempArray;
+              stableListe.maxitoys.actif = true;
+            }
           }
         }
         numSite++;
