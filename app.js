@@ -48,7 +48,6 @@ let stableListe = {
   // },
 };
 let numSite = 0;
-emitter.setMaxListeners(Infinity);
 
 client.on("message", (message) => {
   if (message.content === "run") {
@@ -141,7 +140,7 @@ client.on("message", (message) => {
         //   }
         // }
         numSite++;
-      }, 1000);
+      }, 10000);
     } catch (error) {
       console.log(error);
     }
