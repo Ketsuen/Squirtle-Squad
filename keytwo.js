@@ -68,10 +68,6 @@ async function Keytwo(client, message, stableListe) {
   } catch (error) {
     console.log(error);
     stableListe.actif = true;
-    if (page) {
-      await page.close();
-      await browser.close();
-    }
   }
 }
 

@@ -62,6 +62,7 @@ client.on("message", (message) => {
     }, 300000);
     try {
       setInterval(async () => {
+        process.on("unhandledRejection", (r) => console.log(r));
         let website = numSite % Object.values(stableListe).length;
         if (website == 0) {
           if (stableListe.keytwo.actif) {
