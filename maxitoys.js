@@ -10,7 +10,6 @@ async function Maxitoys(client, message, stableListe) {
 
     const page = (await browser.pages())[0];
     await page.setDefaultNavigationTimeout(0);
-
     await page.goto(
       "https://www.maxitoys.fr/jouets/jeux-de-societe/cartes-a-collectionner.html?mt_hero=Pok%C3%A9mon&product_list_limit=96",
       {
@@ -32,10 +31,6 @@ async function Maxitoys(client, message, stableListe) {
 
       return listeArticles;
     });
-
-    stableListe.actif = true;
-    await page.close();
-    await browser.close();
 
     if (listeArticles !== undefined && stableListe.tableau !== undefined) {
       var newArticles = await listeArticles.filter(
