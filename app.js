@@ -48,11 +48,23 @@ let stableListe = {
   },
 };
 let numSite = 0;
+setInterval(() => {
+  stableListe.keytwo.actif = true;
+  stableListe.maitrerenard.actif = true;
+  stableListe.pikestorep1preco.actif = true;
+  stableListe.pikestorep2preco.actif = true;
+  stableListe.pikastorep1disponible.actif = true;
+  stableListe.pokemart.actif = true;
+  stableListe.jelowstore.actif = true;
+  stableListe.maxitoys.actif = true;
+}, 300000);
+
 client.on("message", (message) => {
   if (message.content === "run") {
     try {
       setInterval(async () => {
         let website = numSite % Object.values(stableListe).length;
+        console.log(stableListe.maitrerenard.actif);
         if (website == 0) {
           if (stableListe.keytwo.actif) {
             stableListe.keytwo.actif = false;
