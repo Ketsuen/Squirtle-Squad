@@ -33,7 +33,7 @@ async function Pikastorep1preco(client, message, stableListe) {
       return listeArticles;
     });
 
-    if (listeArticles) {
+    if (listeArticles === undefined || stableListe.tableau === undefined) {
       var newArticles = await listeArticles.filter(
         await comparer(stableListe.tableau)
       );
