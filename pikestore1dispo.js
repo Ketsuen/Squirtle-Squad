@@ -50,7 +50,9 @@ async function Pikastorep1dispo(client, message, stableListe) {
           );
         }
       }
-      console.log("pikastore1d" + listeArticles.length);
+      console.log(
+        "pikastore1d " + listeArticles.length + " " + stableListe.tableau.length
+      );
       stableListe.actif = true;
       await page.close();
       await browser.close();

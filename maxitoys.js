@@ -37,8 +37,6 @@ async function Maxitoys(client, message, stableListe) {
     await page.close();
     await browser.close();
 
-    console.log("listeArticles", listeArticles);
-    console.log("stableListe.tableau", stableListe.tableau);
     if (listeArticles) {
       var newArticles = await listeArticles.filter(
         await comparer(stableListe.tableau)
@@ -56,7 +54,9 @@ async function Maxitoys(client, message, stableListe) {
           );
         }
       }
-      console.log("Maxitoys" + listeArticles.length);
+      console.log(
+        "Maxitoys " + listeArticles.length + " " + stableListe.tableau.length
+      );
       return listeArticles;
     } else {
       return [];

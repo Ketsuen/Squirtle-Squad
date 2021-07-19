@@ -48,7 +48,12 @@ async function MaitreRenard(client, message, stableListe) {
         }
       }
 
-      console.log("maitrerenard" + listeArticles.length);
+      console.log(
+        "maitrerenard " +
+          listeArticles.length +
+          " " +
+          stableListe.tableau.length
+      );
       stableListe.actif = true;
       await page.close();
       await browser.close();

@@ -49,7 +49,9 @@ async function Keytwo(client, message, stableListe) {
           );
         }
       }
-      console.log("keytwo" + listeArticles.length);
+      console.log(
+        "keytwo " + listeArticles.length + " " + stableListe.tableau.length
+      );
 
       stableListe.actif = true;
 
