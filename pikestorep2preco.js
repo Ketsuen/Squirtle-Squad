@@ -11,7 +11,7 @@ async function Pikastorep2preco(client, message, stableListe) {
     const page = (await browser.pages())[0];
     await page.setDefaultNavigationTimeout(0);
     await page.goto(
-      "https://www.pikastore.fr/cartes/jeux-de-cartes/pokemon/?order=product.price.desc&page=2&q=Disponibilit%C3%A9-Precommande/Langue-Fran%C3%A7ais",
+      "https://www.pikastore.fr/cartes/jeux-de-cartes/pokemon/?page=2&product=2&q=Disponibilit%C3%A9-Precommande/Langue-Fran%C3%A7ais/Type+de+Produit-Booster-Coffret-Display-Pack-Pok%C3%A9box",
       { waitUntil: "load", timeout: 0 }
     );
 

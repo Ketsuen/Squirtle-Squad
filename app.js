@@ -5,7 +5,6 @@ const Keytwo = require("./keytwo");
 const MaitreRenard = require("./maitrerenard");
 const Pikastorep1preco = require("./pikestorep1preco");
 const Pikastorep2preco = require("./pikestorep2preco");
-const Pikastorep1dispo = require("./pikestore1dispo");
 const Pokemart = require("./pokemart");
 const JelowStore = require("./jelowstore");
 const Maxitoys = require("./maxitoys");
@@ -27,10 +26,6 @@ let stableListe = {
     tableau: [],
   },
   pikestorep2preco: {
-    actif: true,
-    tableau: [],
-  },
-  pikastorep1disponible: {
     actif: true,
     tableau: [],
   },
@@ -56,14 +51,12 @@ client.on("message", (message) => {
       stableListe.maitrerenard.actif = true;
       stableListe.pikestorep1preco.actif = true;
       stableListe.pikestorep2preco.actif = true;
-      stableListe.pikastorep1disponible.actif = true;
       stableListe.pokemart.actif = true;
       stableListe.jelowstore.actif = true;
       stableListe.maxitoys.actif = true;
     }, 300000);
     try {
       setInterval(async () => {
-        process.on("unhandledRejection", (r) => console.log(r));
         let website = numSite % Object.values(stableListe).length;
         if (website == 0) {
           if (stableListe.keytwo.actif) {
@@ -102,15 +95,6 @@ client.on("message", (message) => {
             );
           }
         } else if (website == 4) {
-          if (stableListe.pikastorep1disponible.actif) {
-            stableListe.pikastorep1disponible.actif = false;
-            stableListe.pikastorep1disponible.tableau = await Pikastorep1dispo(
-              client,
-              message,
-              stableListe.pikastorep1disponible
-            );
-          }
-        } else if (website == 5) {
           if (stableListe.pokemart.actif) {
             stableListe.pokemart.actif = false;
             stableListe.pokemart.tableau = await Pokemart(
@@ -119,7 +103,7 @@ client.on("message", (message) => {
               stableListe.pokemart
             );
           }
-        } else if (website == 6) {
+        } else if (website == 5) {
           if (stableListe.jelowstore.actif) {
             stableListe.jelowstore.actif = false;
             stableListe.jelowstore.tableau = await JelowStore(
@@ -128,7 +112,7 @@ client.on("message", (message) => {
               stableListe.jelowstore
             );
           }
-        } else if (website == 7) {
+        } else if (website == 6) {
           if (stableListe.maxitoys.actif) {
             stableListe.maxitoys.actif = false;
             stableListe.maxitoys.tableau = await Maxitoys(
