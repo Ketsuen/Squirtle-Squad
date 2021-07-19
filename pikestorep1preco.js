@@ -33,10 +33,6 @@ async function Pikastorep1preco(client, message, stableListe) {
       return listeArticles;
     });
 
-    stableListe.actif = true;
-    await page.close();
-    await browser.close();
-
     if (listeArticles) {
       var newArticles = await listeArticles.filter(
         await comparer(stableListe.tableau)
@@ -55,14 +51,21 @@ async function Pikastorep1preco(client, message, stableListe) {
         }
       }
       console.log("pikastorep1prec" + listeArticles.length);
-
+      stableListe.actif = true;
+      await page.close();
+      await browser.close();
       return listeArticles;
     } else {
+      stableListe.actif = true;
+      await page.close();
+      await browser.close();
       return [];
     }
   } catch (error) {
     console.log(error);
     stableListe.actif = true;
+    await page.close();
+    await browser.close();
   }
 }
 

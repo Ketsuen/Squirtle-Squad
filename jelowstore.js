@@ -36,10 +36,6 @@ async function JelowStore(client, message, stableListe) {
       return listeArticles;
     });
 
-    stableListe.actif = true;
-    await page.close();
-    await browser.close();
-
     if (listeArticles) {
       var newArticles = await listeArticles.filter(
         await comparer(stableListe.tableau)
@@ -58,13 +54,24 @@ async function JelowStore(client, message, stableListe) {
         }
       }
       console.log("JelowStore" + listeArticles.length);
+
+      stableListe.actif = true;
+
+      await page.close();
+      await browser.close();
       return listeArticles;
     } else {
+      stableListe.actif = true;
+
+      await page.close();
+      await browser.close();
       return [];
     }
   } catch (error) {
     console.log(error);
     stableListe.actif = true;
+    await page.close();
+    await browser.close();
   }
 }
 
