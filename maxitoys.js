@@ -37,7 +37,7 @@ async function Maxitoys(client, message, stableListe) {
     await page.close();
     await browser.close();
 
-    if (listeArticles === undefined || stableListe.tableau === undefined) {
+    if (listeArticles !== undefined && stableListe.tableau !== undefined) {
       var newArticles = await listeArticles.filter(
         await comparer(stableListe.tableau)
       );

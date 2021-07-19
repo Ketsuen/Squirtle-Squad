@@ -35,7 +35,7 @@ async function Keytwo(client, message, stableListe) {
       return listeArticles;
     });
 
-    if (listeArticles === undefined || stableListe.tableau === undefined) {
+    if (listeArticles !== undefined && stableListe.tableau !== undefined) {
       var newArticles = await listeArticles.filter(
         await comparer(stableListe.tableau)
       );
