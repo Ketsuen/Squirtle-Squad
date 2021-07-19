@@ -32,28 +32,33 @@ async function Pikastorep2preco(client, message, stableListe) {
 
       return listeArticles;
     });
-    var newArticles = await listeArticles.filter(
-      await comparer(stableListe.tableau)
-    );
-    for (let index = 0; index < newArticles.length; index++) {
-      if (
-        newArticles[index].dispo === "dispo" &&
-        stableListe.tableau.length > 0
-      ) {
-        message.channel.send(
-          "Pikastore\n" +
-            newArticles[index].name +
-            "\n" +
-            newArticles[index].url
-        );
-      }
-    }
 
     stableListe.actif = true;
     await page.close();
     await browser.close();
-    console.log("pikastorep2prec" + listeArticles.length);
-    return listeArticles;
+
+    if (listeArticles) {
+      var newArticles = await listeArticles.filter(
+        await comparer(stableListe.tableau)
+      );
+      for (let index = 0; index < newArticles.length; index++) {
+        if (
+          newArticles[index].dispo === "dispo" &&
+          stableListe.tableau.length > 0
+        ) {
+          message.channel.send(
+            "Pikastore\n" +
+              newArticles[index].name +
+              "\n" +
+              newArticles[index].url
+          );
+        }
+      }
+      console.log("pikastorep2prec" + listeArticles.length);
+      return listeArticles;
+    } else {
+      return [];
+    }
   } catch (error) {
     console.log(error);
     stableListe.actif = true;

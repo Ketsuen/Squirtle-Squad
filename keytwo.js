@@ -32,28 +32,33 @@ async function Keytwo(client, message, stableListe) {
           url: element.querySelector("a").href,
         });
       }
-
       return listeArticles;
     });
-    var newArticles = await listeArticles.filter(
-      await comparer(stableListe.tableau)
-    );
-    for (let index = 0; index < newArticles.length; index++) {
-      if (
-        newArticles[index].dispo === "dispo" &&
-        stableListe.tableau.length > 0
-      ) {
-        message.channel.send(
-          "KEYTWO\n" + newArticles[index].name + "\n" + newArticles[index].url
-        );
-      }
-    }
+
     stableListe.actif = true;
+
     await page.close();
     await browser.close();
 
-    console.log("keytwo" + listeArticles.length);
-    return listeArticles;
+    if (listeArticles) {
+      var newArticles = await listeArticles.filter(
+        await comparer(stableListe.tableau)
+      );
+      for (let index = 0; index < newArticles.length; index++) {
+        if (
+          newArticles[index].dispo === "dispo" &&
+          stableListe.tableau.length > 0
+        ) {
+          message.channel.send(
+            "KEYTWO\n" + newArticles[index].name + "\n" + newArticles[index].url
+          );
+        }
+      }
+      console.log("keytwo" + listeArticles.length);
+      return listeArticles;
+    } else {
+      return [];
+    }
   } catch (error) {
     console.log(error);
     stableListe.actif = true;

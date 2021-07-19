@@ -14,22 +14,27 @@ async function MaitreRenard(client, message, stableListe) {
       "https://maitrerenard.shop/univers/cartes-a-collectionner/?min_price=14&max_price=100&count=50",
       { waitUntil: "load", timeout: 0 }
     );
-    try {
-      const listeArticles = await page.evaluate(() => {
-        let listeArticles = [];
-        let elements = document.querySelectorAll("ul li.product");
-        for (element of elements) {
-          listeArticles.push({
-            name: element.querySelector("div.product-content h3").textContent,
-            dispo: !element.querySelector("a").querySelector("div.out-of-stock")
-              ? "dispo"
-              : "pas dispo",
-            url: element.querySelector("div.product-image a").href,
-          });
-        }
+    const listeArticles = await page.evaluate(() => {
+      let listeArticles = [];
+      let elements = document.querySelectorAll("ul li.product");
+      for (element of elements) {
+        listeArticles.push({
+          name: element.querySelector("div.product-content h3").textContent,
+          dispo: !element.querySelector("a").querySelector("div.out-of-stock")
+            ? "dispo"
+            : "pas dispo",
+          url: element.querySelector("div.product-image a").href,
+        });
+      }
 
-        return listeArticles;
-      });
+      return listeArticles;
+    });
+
+    stableListe.actif = true;
+    await page.close();
+    await browser.close();
+
+    if (listeArticles) {
       var newArticles = await listeArticles.filter(
         await comparer(stableListe.tableau)
       );
@@ -47,15 +52,10 @@ async function MaitreRenard(client, message, stableListe) {
         }
       }
 
-      stableListe.actif = true;
-      await page.close();
-      await browser.close();
       console.log("maitrerenard" + listeArticles.length);
-
       return listeArticles;
-    } catch (error) {
-      stableListe.actif = true;
-      console.log(error);
+    } else {
+      return [];
     }
   } catch (error) {
     console.log(error);
