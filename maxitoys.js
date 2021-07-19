@@ -70,8 +70,10 @@ async function Maxitoys(client, message, stableListe) {
   } catch (error) {
     console.log(error);
     stableListe.actif = true;
-    await page.close();
-    await browser.close();
+    if (page) {
+      await page.close();
+      await browser.close();
+    }
   }
 }
 
