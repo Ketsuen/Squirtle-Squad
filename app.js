@@ -8,7 +8,7 @@ const Pikastorep2preco = require("./pikestorep2preco");
 const Pikastorep1dispo = require("./pikestore1dispo");
 const Pokemart = require("./pokemart");
 const JelowStore = require("./jelowstore");
-// const Maxitoys = require("./maxitoys");
+const Maxitoys = require("./maxitoys");
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -42,10 +42,10 @@ let stableListe = {
     actif: true,
     tableau: [],
   },
-  // maxitoys: {
-  //   actif: true,
-  //   tableau: [],
-  // },
+  maxitoys: {
+    actif: true,
+    tableau: [],
+  },
 };
 let numSite = 0;
 
@@ -59,7 +59,7 @@ client.on("message", (message) => {
       stableListe.pikastorep1disponible.actif = true;
       stableListe.pokemart.actif = true;
       stableListe.jelowstore.actif = true;
-      // stableListe.maxitoys.actif = true;
+      stableListe.maxitoys.actif = true;
     }, 300000);
     try {
       setInterval(async () => {
@@ -128,19 +128,18 @@ client.on("message", (message) => {
               stableListe.jelowstore
             );
           }
+        } else if (website == 7) {
+          if (stableListe.maxitoys.actif) {
+            stableListe.maxitoys.actif = false;
+            stableListe.maxitoys.tableau = await Maxitoys(
+              client,
+              message,
+              stableListe.maxitoys
+            );
+          }
         }
-        // else if (website == 7) {
-        //   if (stableListe.maxitoys.actif) {
-        //     stableListe.maxitoys.actif = false;
-        //     stableListe.maxitoys.tableau = await Maxitoys(
-        //       client,
-        //       message,
-        //       stableListe.maxitoys
-        //     );
-        //   }
-        // }
         numSite++;
-      }, 10000);
+      }, 3000);
     } catch (error) {
       console.log(error);
     }
