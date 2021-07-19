@@ -48,6 +48,8 @@ let stableListe = {
   // },
 };
 let numSite = 0;
+emitter.setMaxListeners(Infinity);
+
 client.on("message", (message) => {
   if (message.content === "run") {
     setInterval(() => {
