@@ -123,7 +123,7 @@ client.on("message", (message) => {
           }
         }
         numSite++;
-      }, 3000);
+      }, 4000);
     } catch (error) {
       console.log(error);
     }
