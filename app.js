@@ -64,7 +64,6 @@ client.on("message", (message) => {
     try {
       setInterval(async () => {
         let website = numSite % Object.values(stableListe).length;
-        console.log(stableListe.maitrerenard.actif);
         if (website == 0) {
           if (stableListe.keytwo.actif) {
             stableListe.keytwo.actif = false;
