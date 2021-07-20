@@ -50,6 +50,12 @@ async function Pikastorep2preco(client, stableListe) {
           );
         }
       }
+      console.log(
+        "pikastorep2prec " +
+          listeArticles.length +
+          " " +
+          stableListe.tableau.length
+      );
       stableListe.actif = true;
       await page.close();
       await browser.close();
