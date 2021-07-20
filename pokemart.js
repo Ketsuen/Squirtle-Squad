@@ -46,9 +46,9 @@ async function Pokemart(client, stableListe) {
         ) {
           client.channels.cache.get(`862724611246522388`).send(
             `"Pokemart\n" +
-              newArticles[index].name +
-              "\n" +
-              newArticles[index].url`
+            ${newArticles[index].name} +
+            "\n" +
+            ${newArticles[index].url}`
           );
         }
       }

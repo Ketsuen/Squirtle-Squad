@@ -43,9 +43,9 @@ async function Maxitoys(client, stableListe) {
         ) {
           client.channels.cache.get(`862724611246522388`).send(
             `"Maxitoys\n" +
-            newArticles[index].name +
+            ${newArticles[index].name} +
             "\n" +
-            newArticles[index].url`
+            ${newArticles[index].url}`
           );
         }
       }

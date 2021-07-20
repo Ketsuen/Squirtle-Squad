@@ -48,9 +48,9 @@ async function JelowStore(client, stableListe) {
           client.channels.cache.get(`862724611246522388`).send(
             `
             "JelowStore\n" +
-              newArticles[index].name +
-              "\n" +
-              newArticles[index].url`
+            ${newArticles[index].name} +
+            "\n" +
+            ${newArticles[index].url}`
           );
         }
       }

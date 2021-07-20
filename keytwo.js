@@ -44,11 +44,11 @@ async function Keytwo(client, stableListe) {
           newArticles[index].dispo === "dispo" &&
           stableListe.tableau.length > 0
         ) {
-          client.channels.cache
-            .get(`862724611246522388`)
-            .send(
-              `"KEYTWO\n" + newArticles[index].name + "\n" + newArticles[index].url`
-            );
+          client.channels.cache.get(`862724611246522388`).send(
+            `"KEYTWO\n" + ${newArticles[index].name} +
+              "\n" +
+              ${newArticles[index].url}`
+          );
         }
       }
       // console.log(
