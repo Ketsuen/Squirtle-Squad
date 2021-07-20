@@ -51,9 +51,9 @@ async function Keytwo(client, stableListe) {
           );
         }
       }
-      // console.log(
-      //   "keytwo " + listeArticles.length + " " + stableListe.tableau.length
-      // );
+      console.log(
+        "keytwo " + listeArticles.length + " " + stableListe.tableau.length
+      );
 
       stableListe.actif = true;
       await page.close();

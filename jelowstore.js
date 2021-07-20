@@ -54,9 +54,9 @@ async function JelowStore(client, stableListe) {
           );
         }
       }
-      // console.log(
-      //   "JelowStore " + listeArticles.length + " " + stableListe.tableau.length
-      // );
+      console.log(
+        "JelowStore " + listeArticles.length + " " + stableListe.tableau.length
+      );
 
       stableListe.actif = true;
 
