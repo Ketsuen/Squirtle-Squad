@@ -52,9 +52,9 @@ async function Pokemart(client, message, stableListe) {
           );
         }
       }
-      console.log(
-        "pokemart " + listeArticles.length + " " + stableListe.tableau.length
-      );
+      // console.log(
+      //   "pokemart " + listeArticles.length + " " + stableListe.tableau.length
+      // );
       stableListe.actif = true;
       await page.close();
       await browser.close();

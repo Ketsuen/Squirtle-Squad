@@ -49,9 +49,9 @@ async function Maxitoys(client, message, stableListe) {
           );
         }
       }
-      console.log(
-        "Maxitoys " + listeArticles.length + " " + stableListe.tableau.length
-      );
+      // console.log(
+      //   "Maxitoys " + listeArticles.length + " " + stableListe.tableau.length
+      // );
       stableListe.actif = true;
       await page.close();
       await browser.close();
