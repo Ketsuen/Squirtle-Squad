@@ -39,11 +39,11 @@ async function MaitreRenard(client, message, stableListe) {
           newArticles[index].dispo === "dispo" &&
           stableListe.tableau.length > 0
         ) {
-          message.channel.send(
-            "MAITRE RENARD\n" +
-              newArticles[index].name +
-              "\n" +
-              newArticles[index].url
+          client.channels.cache.get(`862724611246522388`).send(
+            `"MAITRE RENARD\n" +
+            newArticles[index].name +
+            "\n" +
+            newArticles[index].url`
           );
         }
       }

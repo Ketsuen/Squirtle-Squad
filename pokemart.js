@@ -44,17 +44,14 @@ async function Pokemart(client, message, stableListe) {
           newArticles[index].dispo === "dispo" &&
           stableListe.tableau.length > 0
         ) {
-          message.channel.send(
-            "Pikastore\n" +
+          client.channels.cache.get(`862724611246522388`).send(
+            `"Pokemart\n" +
               newArticles[index].name +
               "\n" +
-              newArticles[index].url
+              newArticles[index].url`
           );
         }
       }
-      // console.log(
-      //   "pokemart " + listeArticles.length + " " + stableListe.tableau.length
-      // );
       stableListe.actif = true;
       await page.close();
       await browser.close();

@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const comparer = require("./utils");
 
-async function Keytwo(client, message, stableListe) {
+async function Keytwo(client, stableListe) {
   try {
     const browser = await puppeteer.launch({
       headless: true,
@@ -44,9 +44,11 @@ async function Keytwo(client, message, stableListe) {
           newArticles[index].dispo === "dispo" &&
           stableListe.tableau.length > 0
         ) {
-          message.channel.send(
-            "KEYTWO\n" + newArticles[index].name + "\n" + newArticles[index].url
-          );
+          client.channels.cache
+            .get(`862724611246522388`)
+            .send(
+              `"KEYTWO\n" + newArticles[index].name + "\n" + newArticles[index].url`
+            );
         }
       }
       // console.log(
@@ -54,6 +56,8 @@ async function Keytwo(client, message, stableListe) {
       // );
 
       stableListe.actif = true;
+      console.log("here");
+      client.channels.cache.get(`862724611246522388`).send(`yo`);
 
       await page.close();
       await browser.close();

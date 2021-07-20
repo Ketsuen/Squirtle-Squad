@@ -42,11 +42,11 @@ async function Pikastorep1preco(client, message, stableListe) {
           newArticles[index].dispo === "dispo" &&
           stableListe.tableau.length > 0
         ) {
-          message.channel.send(
-            "Pikastore\n" +
-              newArticles[index].name +
-              "\n" +
-              newArticles[index].url
+          client.channels.cache.get(`862724611246522388`).send(
+            `"Pikastore\n" +
+            newArticles[index].name +
+            "\n" +
+            newArticles[index].url`
           );
         }
       }

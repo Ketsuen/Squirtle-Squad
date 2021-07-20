@@ -45,11 +45,12 @@ async function JelowStore(client, message, stableListe) {
           newArticles[index].dispo === "dispo" &&
           stableListe.tableau.length > 0
         ) {
-          message.channel.send(
+          client.channels.cache.get(`862724611246522388`).send(
+            `
             "JelowStore\n" +
               newArticles[index].name +
               "\n" +
-              newArticles[index].url
+              newArticles[index].url`
           );
         }
       }
