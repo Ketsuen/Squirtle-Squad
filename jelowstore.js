@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const comparer = require("./utils");
 
-async function JelowStore(client, message, stableListe) {
+async function JelowStore(client, stableListe) {
   try {
     const browser = await puppeteer.launch({
       headless: true,

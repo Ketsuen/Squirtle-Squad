@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const comparer = require("./utils");
 
-async function MaitreRenard(client, message, stableListe) {
+async function MaitreRenard(client, stableListe) {
   try {
     const browser = await puppeteer.launch({
       headless: true,

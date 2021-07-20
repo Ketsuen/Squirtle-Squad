@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const comparer = require("./utils");
 
-async function Maxitoys(client, message, stableListe) {
+async function Maxitoys(client, stableListe) {
   try {
     const browser = await puppeteer.launch({
       headless: true,

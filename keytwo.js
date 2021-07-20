@@ -56,9 +56,6 @@ async function Keytwo(client, stableListe) {
       // );
 
       stableListe.actif = true;
-      console.log("here");
-      client.channels.cache.get(`862724611246522388`).send(`yo`);
-
       await page.close();
       await browser.close();
       return listeArticles;

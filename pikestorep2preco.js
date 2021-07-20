@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const comparer = require("./utils");
 
-async function Pikastorep2preco(client, message, stableListe) {
+async function Pikastorep2preco(client, stableListe) {
   try {
     const browser = await puppeteer.launch({
       headless: true,
