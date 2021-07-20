@@ -77,6 +77,7 @@ client.on("message", (message) => {
             );
           }
         } else if (website == 2) {
+          console.log(stableListe.pikestorep1preco.actif);
           if (stableListe.pikestorep1preco.actif) {
             stableListe.pikestorep1preco.actif = false;
             stableListe.pikestorep1preco.tableau = await Pikastorep1preco(
