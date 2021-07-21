@@ -10,13 +10,10 @@ async function Tdes(client, stableListe) {
 
     const page = (await browser.pages())[0];
     await page.setDefaultNavigationTimeout(0);
-    await page.goto(
-      "https://3des.bzh/?s=display+pokemon&post_type=product&product_cat=0",
-      {
-        waitUntil: "load",
-        timeout: 0,
-      }
-    );
+    await page.goto("https://3des.bzh/?s=eb07&post_type=product", {
+      waitUntil: "load",
+      timeout: 0,
+    });
 
     const listeArticles = await page.evaluate(() => {
       let listeArticles = [];
